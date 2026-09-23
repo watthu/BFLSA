@@ -6,11 +6,11 @@ This repository implements Bayesian fusion learning for subgroup analysis with *
 
 For individual $i = 1, \dots, n$, the model is 
 
-$$
-y_i=\boldsymbol{x}_i^\top\boldsymbol{\beta}_i+\boldsymbol{z}_i^\top\boldsymbol{\alpha}+\varepsilon_i,\qquad\varepsilon_i\sim N(0,\sigma^2),
-$$
+```math
+y_i = \boldsymbol{x}_i^\top \boldsymbol{\beta}_i + \boldsymbol{z}_i^\top \boldsymbol{\alpha} + \varepsilon_i, \qquad \varepsilon_i \sim N(0, \sigma^2)
+```
 
-where $\boldsymbol{\beta}_i\in\mathbb R^p$ are **heterogeneous** effects and $\boldsymbol{\alpha}\in\mathbb R^q$ are **common** effects. A spike-and-slab type prior is placed on the differences $\boldsymbol{\beta}_i-\boldsymbol{\beta}_j$ over the edges of a neighborhood graph, so that similar individuals are fused together. Subgroups are then identified from the posterior of the pairwise indicators $\delta_{ij}$.
+where $`\boldsymbol{\beta}_i \in \mathbb{R}^p`$ are **heterogeneous** effects and $`\boldsymbol{\alpha} \in \mathbb{R}^q`$ are **common** effects. A spike-and-slab type prior is placed on the differences $`\boldsymbol{\beta}_i - \boldsymbol{\beta}_j`$ over the edges of a neighborhood graph, so that similar individuals are fused together. Subgroups are then identified from the posterior of the pairwise indicators $`\delta_{ij}`$.
 
 R handles data preparation, graph construction and summaries; C++ (via Rcpp/RcppArmadillo) performs MAP estimation and Gibbs sampling. This is a collection of research scripts, not an installable R package.
 
